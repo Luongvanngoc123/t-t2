@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long dp[305][105];
+long long vuiToiDa[305][105];
 
 int main() {
     freopen("CAU4.INP", "r", stdin);
@@ -13,10 +13,13 @@ int main() {
         cin >> vui >> tgAn >> luong;
         for (int gio = thoiGian; gio >= tgAn; gio--) {
             for (int an = thucAn; an >= luong; an--) {
-                dp[gio][an] = max(dp[gio][an], dp[gio - tgAn][an - luong] + vui);
+                long long neuChon = vuiToiDa[gio - tgAn][an - luong] + vui;
+                if (neuChon > vuiToiDa[gio][an]) {
+                    vuiToiDa[gio][an] = neuChon;
+                }
             }
         }
     }
-    cout << dp[thoiGian][thucAn] << endl;
+    cout << vuiToiDa[thoiGian][thucAn] << endl;
     return 0;
 }
