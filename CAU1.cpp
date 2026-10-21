@@ -1,6 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void inKetQua(bool tang, bool giam) {
+    if (tang == true) {
+        cout << "ascending" << endl;
+    } else if (giam == true) {
+        cout << "descending" << endl;
+    } else {
+        cout << "mixed" << endl;
+    }
+}
+
 int main() {
     freopen("CAU1.INP", "r", stdin);
     freopen("CAU1.OUT", "w", stdout);
@@ -18,12 +28,6 @@ int main() {
             giam = false;
         }
     }
-    if (tang == true) {
-        cout << "ascending" << endl;
-    } else if (giam == true) {
-        cout << "descending" << endl;
-    } else {
-        cout << "mixed" << endl;
-    }
+    inKetQua(tang, giam);
     return 0;
 }
